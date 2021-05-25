@@ -1,3 +1,5 @@
+@import 'assets/styles/default.scss';
+
 .header {
   &--logo {
     position: absolute;
@@ -5,5 +7,10 @@
     margin-right: auto;
     left: 0;
     right: 0;
+    max-width: 240px;
+    
+    @include mediaSize($medium) {
+      max-width: 502px;
+    }
   }
 }

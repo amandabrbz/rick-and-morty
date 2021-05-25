@@ -1,8 +1,13 @@
 @import './default.scss';
 
 body {
-  background-image: url(../images/rick-and-morty-background.png);
+  background-image: url(../images/background-rick-and-morty-mobile.png);
   background-color: $black;
   background-repeat: no-repeat;
-  background-size: 100% max(900px);
+  background-size: 100% max(568px);
+  
+  @include mediaSize($medium) {
+    background-image: url(../images/rick-and-morty-background.png);
+    background-size: 100% max(900px);
+  }
 }

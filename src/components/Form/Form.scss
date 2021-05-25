@@ -6,10 +6,14 @@
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  top: 300px;
+  top: 10em;
   left: 0;
   right: 0;
   max-width: 300px;
+
+  @include mediaSize($medium) {
+    top: 17em;
+  }
 
   &--input {
     background: $transparent;
