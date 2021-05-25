@@ -1,0 +1,16 @@
+.home {
+  height: 100vh;
+
+  &--background {
+    max-width: 100vw;
+    object-fit: cover;
+  }
+
+  &--logo {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+}
