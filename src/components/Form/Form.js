@@ -7,11 +7,15 @@ const Form = () => {
         type="text"
         placeholder="Type to search one character..."
         className="form--input"
-      />
+        id="search"
+        name="search"
+        data-testid="search"
+        />
       <button
         type="submit"
         className="form--submit"
         title="click to search a character"
+        data-testid="submit"
       >
         Search
       </button>
