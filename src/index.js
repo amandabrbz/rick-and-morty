@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import reportWebVitals from 'reportWebVitals'
 import 'assets/styles/reset.scss'
+import 'assets/styles/global.scss'
 import Home from 'pages/Home/Home'
 
 ReactDOM.render(

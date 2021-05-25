@@ -12,16 +12,6 @@ describe('renders home page', () => {
     expect(logo).toBeInTheDocument()
   })
 
-  it('should render the background', () => {
-    render(<Home />)
-
-    const backgroundImage = screen.getByRole('img', {
-      name: /draw from the rick and morty's universe/i,
-    })
-
-    expect(backgroundImage).toBeInTheDocument()
-  })
-
   it('should render form for search characters', () => {
     render(<Home />)
 

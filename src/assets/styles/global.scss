@@ -1,0 +1,8 @@
+@import './default.scss';
+
+body {
+  background-image: url(../images/rick-and-morty-background.png);
+  background-color: $black;
+  background-repeat: no-repeat;
+  background-size: 100% max(900px);
+}
