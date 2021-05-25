@@ -1,0 +1,55 @@
+@import 'assets/styles/default.scss';
+
+.form {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 300px;
+  left: 0;
+  right: 0;
+  max-width: 300px;
+
+  &--input {
+    background: $transparent;
+    width: 196px;
+    height: 42px;
+    border: $border solid $white;
+    box-sizing: border-box;
+    border-radius: $radius;
+    margin-right: $gap;
+    color: $white;
+    padding: 0 14px;
+    font-family: $font;
+    @include convertToRem(font-size, 16);
+
+    &:focus {
+      outline: none;
+      border: $border solid $active;
+      color: $active;
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+
+  &--submit {
+    @include convertToRem(width, 84);
+    @include convertToRem(height, 42);
+    background: $transparent;
+    border: $border solid $white;
+    box-sizing: border-box;
+    border-radius: $radius;
+    color: $white;
+    cursor: pointer;
+    font-family: $font;
+    @include convertToRem(font-size, 16);
+
+    &:hover {
+      border: $border solid $active;
+      color: $active;
+    }
+  }
+}
