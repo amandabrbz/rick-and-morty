@@ -5,8 +5,12 @@ import './Home.scss'
 const Home = () => {
   return (
     <>
-      <Header/>
-      <Form />
+      <Header />
+      <main>
+        <section>
+          <Form />
+        </section>
+      </main>
     </>
   )
 }
