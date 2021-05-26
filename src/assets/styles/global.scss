@@ -1,5 +1,10 @@
 @import './default.scss';
 
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: url(../images/background-rick-and-morty-mobile.png);
   background-color: $black;

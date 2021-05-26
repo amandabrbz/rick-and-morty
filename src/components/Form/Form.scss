@@ -1,19 +1,15 @@
 @import 'assets/styles/default.scss';
 
 .form {
+  max-width: 978px;
+  margin: 4em auto;
   display: flex;
   justify-content: center;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 10em;
-  left: 0;
-  right: 0;
-  max-width: 300px;
+
   @include animationScaleLeft;
 
   @include mediaSize($medium) {
-    top: 17em;
+    margin: 5em auto;
   }
 
   &--input {

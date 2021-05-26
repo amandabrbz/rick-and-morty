@@ -1,15 +1,19 @@
 @import 'assets/styles/default.scss';
 
 .header {
+  max-width: 978px;
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+
+  @include mediaSize($medium) {
+    margin: 4em auto;
+  }
+
   &--logo {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
     max-width: 240px;
     @include animationScaleCenter;
-    
+
     @include mediaSize($medium) {
       max-width: 502px;
     }
