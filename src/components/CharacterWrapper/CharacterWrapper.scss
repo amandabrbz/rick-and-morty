@@ -1,0 +1,20 @@
+@import 'assets/styles/default.scss';
+
+.character-wrapper {
+  max-width: 972px;
+  margin: 0 auto;
+  @include convertToRem(padding-left, 30);
+  @include convertToRem(padding-right, 30);
+  position: relative;
+  top: 15em;
+  left: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 24px;
+
+  @include mediaSize($medium) {
+    top: 25em;
+    grid-template-columns: repeat(auto-fill, 225px);
+  }
+}
