@@ -1,0 +1,39 @@
+@import 'assets/styles/default.scss';
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+
+  img {
+    width: 184px;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+    @include fadeIn;
+  }
+
+  h2 {
+    color: white;
+    font-family: $font;
+    margin-top: 20px;
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    width: 6em;
+    @include typing;
+  }
+  .wrapper {
+  }
+}
