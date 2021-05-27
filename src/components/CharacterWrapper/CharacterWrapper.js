@@ -8,14 +8,18 @@ const CharacterWrapper = () => {
     {
       id: 1,
       imagem: Mock,
+      background: Mock,
       name: 'Rick Sanchez',
       type: 'Human',
+      planet: 'Human',
+      description: 'loremloremloremloremlorem loremloremlorem loremloremloremlorem lorem loremloremlorem loremlorem loremlorem',
+      residents: 'Human',
     }
   ]
 
   return (
     <section className="character-wrapper">
-      <CharacterCard characters={mock} />
+      <CharacterCard characters={mock} size="avatar" />
     </section>
   )
 }

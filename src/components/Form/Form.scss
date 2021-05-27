@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
 
-  @include animationScaleLeft;
+  @include slideIn;
 
   @include mediaSize($medium) {
     margin: 5em auto;

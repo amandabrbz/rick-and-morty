@@ -1,0 +1,179 @@
+@import 'assets/styles/default.scss';
+
+.modal {
+  &-container {
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+
+    @include slideIn;
+
+    @include mediaSize($medium) {
+      overflow-y: hidden;
+    }
+  }
+
+  &-content {
+    top: 180px;
+    width: 88%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: $double-radius;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1034px;
+    max-height: 1052px;
+
+    @include mediaSize($medium) {
+      height: 90%;
+      width: 70%;
+      grid-template-columns: 3fr 5fr;
+      top: unset;
+    }
+
+    &__image {
+      width: 100%;
+      height: 75px;
+      max-height: 1052px;
+
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.4);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-top-left-radius: $double-radius;
+      border-top-right-radius: $double-radius;
+
+      @include mediaSize($medium) {
+        height: inherit;
+        border-bottom-left-radius: $double-radius;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &__close {
+      background: transparent;
+      border: transparent;
+      color: $white;
+      font-size: 3rem;
+      font-family: $font;
+      font-weight: 200;
+      position: fixed;
+      top: -120px;
+
+      @include mediaSize($medium) {
+        top: 10px;
+        left: 10px;
+        @include convertToRem(width, 84);
+        @include convertToRem(height, 42);
+        background: $transparent;
+        border: $border solid $white;
+        box-sizing: border-box;
+        border-radius: $radius;
+        color: $white;
+        cursor: pointer;
+        font-family: $font;
+        @include convertToRem(font-size, 16);
+
+        &:hover {
+          border: $border solid $active;
+          color: $active;
+        }
+      }
+
+      &--text {
+        display: none;
+        @include mediaSize($medium) {
+          display: unset;
+        }
+      }
+
+      &--symbol {
+        display: block;
+
+        @include mediaSize($medium) {
+          display: none;
+        }
+      }
+    }
+
+    &__description {
+      padding: 50px 20px;
+      @include mediaSize($medium) {
+        padding: 50px;
+      }
+
+      &--wrapper {
+        margin-bottom: 40px;
+        @include mediaSize($medium) {
+          margin-bottom: 60px;
+        }
+      }
+
+      &--title {
+        font-family: $font;
+        font-style: normal;
+        font-weight: normal;
+        @include convertToRem(font-size, 13);
+        line-height: 18px;
+        letter-spacing: 0.65em;
+        color: $yellow;
+        text-transform: uppercase;
+        margin-bottom: 17px;
+      }
+
+      &--description {
+        font-family: $font;
+        font-style: normal;
+        font-weight: normal;
+        @include convertToRem(font-size, 16);
+        line-height: 22px;
+        color: $gray-fourth;
+      }
+
+      &--obs {
+        font-family: $font;
+        font-style: normal;
+        font-weight: normal;
+        @include convertToRem(font-size, 14);
+        line-height: 19px;
+        color: $gray-second;
+        > img {
+          margin-right: 10px;
+        }
+        > span {
+          margin-right: 1px;
+        }
+      }
+
+      &--highlight {
+        font-family: $font;
+        font-style: normal;
+        font-weight: normal;
+        @include convertToRem(font-size, 28);
+        line-height: 38px;
+        color: $white;
+
+        &__small {
+          font-family: $font;
+          font-style: normal;
+          font-weight: normal;
+          @include convertToRem(font-size, 18);
+          line-height: 25px;
+          color: $gray-second;
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+}
