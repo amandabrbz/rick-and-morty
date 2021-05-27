@@ -15,4 +15,8 @@ body {
     background-image: url(../images/rick-and-morty-background.png);
     background-size: 100% max(900px);
   }
+
+  &.block-scroll {
+    overflow: hidden;
+  }
 }
