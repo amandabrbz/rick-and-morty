@@ -5,9 +5,15 @@ import 'assets/styles/reset.scss'
 import 'assets/styles/global.scss'
 import Home from 'pages/Home/Home'
 
+import { ApolloProvider } from '@apollo/client'
+
+import client from 'service'
+
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <ApolloProvider client={client}>
+      <Home />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
