@@ -36,10 +36,10 @@
       }
 
       img {
-        max-width: 250px;
+        width: 250px;
 
         @include mediaSize($medium) {
-          max-width: 220px;
+          width: 220px;
           height: 165px;
         }
       }
@@ -83,7 +83,7 @@
       }
 
       img {
-        max-width: 173px;
+        width: 173px;
 
         @include mediaSize($medium) {
           width: 100%;
@@ -96,7 +96,7 @@
       figcaption {
         height: 55px;
         width: 174px;
-
+        
         @include mediaSize($medium) {
           width: 100%;
           max-width: 401px;
@@ -134,6 +134,11 @@
         @include convertToRem(font-size, 20);
         font-weight: bold;
         line-height: 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
       }
 
       p {
