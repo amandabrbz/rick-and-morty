@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   gap: 24px;
+  justify-content: center;
 
   @include mediaSize($medium) {
     margin: 7em auto 5em;

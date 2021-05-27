@@ -37,10 +37,10 @@
 
       img {
         width: 250px;
-
+        max-height: 168px;
+        
         @include mediaSize($medium) {
           width: 220px;
-          height: 165px;
         }
       }
 
