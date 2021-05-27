@@ -74,21 +74,21 @@ Modal.Content = function ModalContent({data}) {
     <section className="modal-content__description--wrapper">
       <h2 className="modal-content__description--title">About</h2>
       <p className="modal-content__description--description">
-        {data[0].description}
+        {data[0].name} is a {data[0].species} from the gender {data[0].gender} and it's currrent status is {data[0].status}.
       </p>
     </section>
     <section className="modal-content__description--wrapper">
       <h2 className="modal-content__description--title">Origin</h2>
       <h3 className="modal-content__description--obs">Planet</h3>
       <p className="modal-content__description--highlight">
-        {data[0].planet}
+        {data[0].origin.name}
       </p>
       <p className="modal-content__description--highlight__small">
-        {data[0].planet}
+        {data[0].origin.name}
       </p>
       <p className="modal-content__description--obs">
         <img src={Icon} alt="icon representing population" role="presentation"/> 
-        <span>{data[0].residents} </span>
+        <span>{data[0].residents || `Non Identified`} </span>
         residents
       </p>
     </section>
@@ -96,14 +96,14 @@ Modal.Content = function ModalContent({data}) {
       <h2 className="modal-content__description--title">Location</h2>
       <h3 className="modal-content__description--obs">Planet</h3>
       <p className="modal-content__description--highlight">
-        {data[0].planet}
+        {data[0].location.name}
       </p>
       <p className="modal-content__description--highlight__small">
-        {data[0].planet}
+        {data[0].origin.name}
       </p>
       <p className="modal-content__description--obs">
         <img src={Icon} alt="icon representing population" role="presentation"/> 
-        <span>{data[0].residents} </span>
+        <span>{data[0].residents || `Non Identified`} </span>
         residents
       </p>
     </section>

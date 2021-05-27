@@ -31,10 +31,10 @@ const CharacterCard = (props) => {
             onClick={ handleClick }
           >
             <figure>
-              <img src={item.imagem} alt={item.name} data-testid="cardImage" />
+              <img src={item.image} alt={item.name} data-testid="cardImage" />
               <figcaption>
                 <h2 data-testid="cardName">{item.name}</h2>
-                <p data-testid="cardType">{item.type}</p>
+                <p data-testid="cardType">{item.species}</p>
               </figcaption>
             </figure>
           </article>

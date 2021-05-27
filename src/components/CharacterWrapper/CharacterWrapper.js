@@ -1,25 +1,23 @@
 import CharacterCard from 'components/CharacterCard/CharacterCard'
-import Mock from 'assets/images/image-mock-rick.png'
 import './CharacterWrapper.scss'
+import { useQuery } from "@apollo/client";
+import INFO_PERSON from "query/index";
+import Loading from 'components/Loading/Loading';
 
 const CharacterWrapper = () => {
+  const { loading, error, data } = useQuery(INFO_PERSON);
 
-  const mock = [
-    {
-      id: 1,
-      imagem: Mock,
-      background: Mock,
-      name: 'Rick Sanchez',
-      type: 'Human',
-      planet: 'Human',
-      description: 'loremloremloremloremlorem loremloremlorem loremloremloremlorem lorem loremloremlorem loremlorem loremlorem',
-      residents: 'Human',
-    }
-  ]
+  if (loading) {
+    return <Loading/>;
+  }
+
+  if (error) {
+    return <p>an error occurred...</p>;
+  }
 
   return (
     <section className="character-wrapper">
-      <CharacterCard characters={mock} size="avatar" />
+      <CharacterCard characters={data.characters.results} size="avatar" />
     </section>
   )
 }
