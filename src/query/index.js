@@ -4,7 +4,10 @@ const INFO_PERSON = gql`
   query {
     characters {
       results {
+        id
         name
+        status
+        gender
         species
         origin {
           name
