@@ -10,41 +10,42 @@ const CharacterCard = (props) => {
   useEffect(() => {
     const body = document.querySelector('body')
 
-    isModalVisible ? body.classList.add("block-scroll") :  body.classList.remove("block-scroll")
-    
+    isModalVisible
+      ? body.classList.add('block-scroll')
+      : body.classList.remove('block-scroll')
   }, [isModalVisible])
 
   const handleClick = () => {
-    if(size === 'avatar') {
+    if (size === 'avatar') {
       setIsModalVisible(true)
     }
   }
 
   return (
     <>
-      {data &&
-        data.characters.results.map((item) => (
-          <article
-            className={`character-card ${size || ''}`}
-            key={item.id}
-            data-testid="card"
-            onClick={ handleClick }
-          >
-            <figure>
-              <img src={item.image} alt={item.name} data-testid="cardImage" />
-              <figcaption>
-                <h2 data-testid="cardName">{item.name}</h2>
-                <p data-testid="cardType">{item.species}</p>
-              </figcaption>
-            </figure>
-          </article>
-        ))}
+      {data && (
+        <article
+          className={`character-card ${size || ''}`}
+          key={data.id}
+          data-testid="card"
+          onClick={handleClick}
+        >
+          <figure>
+            <img src={data.image} alt={data.name} data-testid="cardImage" />
+            <figcaption>
+              <h2 data-testid="cardName">{data.name}</h2>
+              <p data-testid="cardType">{data.species}</p>
+            </figcaption>
+          </figure>
+        </article>
+      )}
+      
       {isModalVisible && (
         <Modal onModalClose={() => setIsModalVisible(false)}>
-          <Modal.Image>
+          <Modal.Image background={data.image}>
             <CharacterCard size="badge" data={data} />
           </Modal.Image>
-          <Modal.Content data={data}/>
+          <Modal.Content data={data} />
         </Modal>
       )}
     </>

@@ -38,7 +38,7 @@
       img {
         width: 250px;
         max-height: 168px;
-        
+
         @include mediaSize($medium) {
           width: 220px;
         }
@@ -84,11 +84,13 @@
 
       img {
         width: 173px;
+        height: 169px;
+        border-radius: $radius;
 
         @include mediaSize($medium) {
           width: 100%;
-          height: 89%;
-          max-width: 390px;
+          height: 100%;
+          max-width: 401px;
           max-height: 653px;
         }
       }
@@ -96,7 +98,7 @@
       figcaption {
         height: 55px;
         width: 174px;
-        
+
         @include mediaSize($medium) {
           width: 100%;
           max-width: 401px;
