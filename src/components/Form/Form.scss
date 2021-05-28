@@ -36,8 +36,6 @@
     }
   }
 
-  
-
   &--submit {
     @include convertToRem(width, 84);
     @include convertToRem(height, 42);
@@ -50,7 +48,9 @@
     font-family: $font;
     @include convertToRem(font-size, 16);
 
+    &:focus,
     &:hover {
+      outline: none;
       border: $border solid $active;
       color: $active;
     }

@@ -28,18 +28,19 @@ const CharacterCard = (props) => {
           className={`character-card ${size || ''}`}
           key={data.id}
           data-testid="card"
-          onClick={handleClick}
         >
-          <figure>
-            <img src={data.image} alt={data.name} data-testid="cardImage" />
-            <figcaption>
-              <h2 data-testid="cardName">{data.name}</h2>
-              <p data-testid="cardType">{data.species}</p>
-            </figcaption>
-          </figure>
+          <button onClick={handleClick} title="Click to see more information">
+            <figure>
+              <img src={data.image} alt={`${data.name} avatar`} data-testid="cardImage" />
+              <figcaption>
+                <h2 data-testid="cardName">{data.name}</h2>
+                <p data-testid="cardType">{data.species}</p>
+              </figcaption>
+            </figure>
+          </button>
         </article>
       )}
-      
+
       {isModalVisible && (
         <Modal onModalClose={() => setIsModalVisible(false)}>
           <Modal.Image background={data.image}>

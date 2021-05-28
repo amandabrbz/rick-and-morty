@@ -19,9 +19,8 @@ export default function Modal({ children, onModalClose }) {
   const modalRef = createRef()
   const handleTabKey = (e) => {
     const focusableModalElements = modalRef.current.querySelectorAll('button')
-    const firstElement = focusableModalElements
-    const lastElement =
-      focusableModalElements[focusableModalElements.length - 1]
+    const firstElement = focusableModalElements[0]
+    const lastElement = focusableModalElements[focusableModalElements.length - 1]
 
     if (!e.shiftKey && document.activeElement !== firstElement) {
       firstElement.focus()
