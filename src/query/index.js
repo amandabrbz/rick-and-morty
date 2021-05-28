@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
-const INFO_PERSON = gql`
-  query {
-    characters {
+const CHARACTER_SEARCH = gql`
+  query ($searchChar: String) {
+    characters(filter: { name: $searchChar }) {
       results {
         id
         name
@@ -21,4 +21,4 @@ const INFO_PERSON = gql`
   }
 `
 
-export default INFO_PERSON
+export default CHARACTER_SEARCH

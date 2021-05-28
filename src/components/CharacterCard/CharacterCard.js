@@ -3,7 +3,7 @@ import Modal from 'components/Modal/Modal'
 import './CharacterCard.scss'
 
 const CharacterCard = (props) => {
-  const { characters, size } = props
+  const { data, size } = props
 
   const [isModalVisible, setIsModalVisible] = useState(false)
 
@@ -22,8 +22,8 @@ const CharacterCard = (props) => {
 
   return (
     <>
-      {characters &&
-        characters.map((item) => (
+      {data &&
+        data.characters.results.map((item) => (
           <article
             className={`character-card ${size || ''}`}
             key={item.id}
@@ -42,9 +42,9 @@ const CharacterCard = (props) => {
       {isModalVisible && (
         <Modal onModalClose={() => setIsModalVisible(false)}>
           <Modal.Image>
-            <CharacterCard size="badge" characters={characters} />
+            <CharacterCard size="badge" data={data} />
           </Modal.Image>
-          <Modal.Content data={characters}/>
+          <Modal.Content data={data}/>
         </Modal>
       )}
     </>
