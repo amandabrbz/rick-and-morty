@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import CHARACTER_SEARCH from 'query'
 import Loading from 'components/Loading/Loading'
@@ -6,22 +6,27 @@ import { Context } from 'pages/Home/Home'
 import './Form.scss'
 
 const Form = () => {
-  const { setData } = useContext(Context);
-
+  const { setData } = useContext(Context)
   const [searchChar, setSearchChar] = useState('')
+
+  const [getCharacters, { loading, data, error }] =
+    useLazyQuery(CHARACTER_SEARCH)
 
   const handleChange = ({ target }) => {
     let { value } = target
     setSearchChar(value)
   }
 
-  const [getCharacters, { loading, data, error }] =
-    useLazyQuery(CHARACTER_SEARCH)
-
   const handleSubmit = (e) => {
     e.preventDefault()
     getCharacters({ variables: { searchChar } })
   }
+
+  useEffect(() => {
+    if (data !== undefined) {
+      setData(data)
+    }
+  }, [data, setData])
 
   if (loading) {
     return <Loading />
@@ -29,11 +34,6 @@ const Form = () => {
 
   if (error) {
     return <p>an error occurred...</p>
-  }
-
-  if(data !== undefined) {
-    setData(data)
-    console.log(data)
   }
 
   return (
