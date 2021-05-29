@@ -53,6 +53,8 @@ const Form = () => {
         data-testid="form-character"
         onSubmit={handleSubmit}
       >
+
+        {console.log(data)}
         <label htmlFor="search" className="sr-only">
           Search a character from Rick and Morty's universe
         </label>

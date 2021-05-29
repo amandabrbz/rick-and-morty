@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 const CHARACTER_SEARCH = gql`
-  query ($searchChar: String) {
-    characters(filter: { name: $searchChar }) {
+  query ($character: String, $pages: Int) {
+    characters(page:$pages, filter: { name: $character }) {
       results {
         id
         name
@@ -16,6 +16,11 @@ const CHARACTER_SEARCH = gql`
           name
         }
         image
+      }
+      info {
+        pages
+        next
+        prev
       }
     }
   }
