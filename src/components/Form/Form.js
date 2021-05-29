@@ -33,7 +33,8 @@ const Form = () => {
   }
 
   if (error) {
-    return <p>an error occurred...</p>
+    console.error(error)
+    return <Form/>
   }
 
   return (

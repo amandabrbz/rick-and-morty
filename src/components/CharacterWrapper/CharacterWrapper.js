@@ -10,7 +10,7 @@ const CharacterWrapper = () => {
     <section className="character-wrapper">
       {data &&
         data.characters.results.map((char) => (
-          <CharacterCard data={char} size="avatar" />
+          <CharacterCard data={char} size="avatar" key={char.id} />
         ))}
     </section>
   )
