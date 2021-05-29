@@ -1,0 +1,160 @@
+@import 'assets/styles/default.scss';
+
+.error {
+  &-container {
+    z-index: 50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+
+    @include slideIn;
+  }
+
+  &-content {
+    top: 0;
+    width: 90%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: $double-radius;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include mediaSize($medium) {
+      height: 187px;
+      width: 40%;
+      grid-template-columns: 1fr 5fr;
+      top: unset;
+    }
+
+    &__close {
+      position: absolute;
+      background: transparent;
+      border: transparent;
+      color: $white;
+      font-size: 2.5rem;
+      font-family: $font;
+      font-weight: 200;
+      left: 6px;
+      z-index: 100;
+
+      @include mediaSize($medium) {
+        top: 10px;
+        left: 10px;
+        @include convertToRem(width, 84);
+        @include convertToRem(height, 42);
+        background: $transparent;
+        border: $border solid $white;
+        box-sizing: border-box;
+        border-radius: $radius;
+        color: $white;
+        cursor: pointer;
+        font-family: $font;
+        @include convertToRem(font-size, 16);
+
+        &:hover {
+          border: $border solid $active;
+          color: $active;
+        }
+      }
+
+      &--text {
+        display: none;
+        @include mediaSize($medium) {
+          display: unset;
+        }
+      }
+
+      &--symbol {
+        display: block;
+
+        @include mediaSize($medium) {
+          display: none;
+        }
+      }
+    }
+
+    > figure {
+      display: flex;
+      justify-content: center;
+      margin: -70px 0 10px;
+      @include mediaSize($medium) {
+        margin: 0;
+        display: initial;
+      }
+
+      > img {
+        position: relative;
+        border-radius: $double-radius;
+
+        @include mediaSize($medium) {
+          border-radius: 0;
+          border-top-left-radius: $double-radius;
+          border-bottom-left-radius: $double-radius;
+        }
+      }
+    }
+
+    &__description {
+      padding: 25px 20px;
+      @include mediaSize($medium) {
+        padding: 25px 40px;
+      }
+
+      &--title {
+        font-family: $font;
+        font-style: normal;
+        font-weight: normal;
+        @include convertToRem(font-size, 13);
+        line-height: 18px;
+        letter-spacing: 0.65em;
+        color: $yellow;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      > p {
+        font-family: $font;
+        font-style: normal;
+        font-weight: normal;
+        @include convertToRem(font-size, 16);
+        line-height: 22px;
+        color: $gray-fourth;
+        margin-bottom: 7px;
+      }
+
+      &--list {
+        padding: 0;
+        list-style-type: disclosure-closed;
+        display: flex;
+        flex-wrap: wrap;
+        padding-inline-start: 20px;
+
+        > li {
+          &::marker {
+            color: $white;
+          }
+
+          font-family: $font;
+          font-style: normal;
+          font-weight: normal;
+          @include convertToRem(font-size, 16);
+          line-height: 22px;
+          color: $yellow;
+        }
+
+        > li:is(:not(:last-child)) {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+}

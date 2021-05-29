@@ -2,15 +2,24 @@ import { useState, useContext, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import CHARACTER_SEARCH from 'query'
 import Loading from 'components/Loading/Loading'
+import ModalError from 'components/ModalError/ModalError'
 import { Context } from 'pages/Home/Home'
 import './Form.scss'
 
 const Form = () => {
   const { setData } = useContext(Context)
   const [searchChar, setSearchChar] = useState('')
+  const [isErrorVisible, setIsErrorVisible] = useState(false)
 
-  const [getCharacters, { loading, data, error }] =
-    useLazyQuery(CHARACTER_SEARCH)
+  const [getCharacters, { loading, data }] = useLazyQuery(
+    CHARACTER_SEARCH,
+    {
+      onError: (err) => {
+        console.error(err)
+        setIsErrorVisible(true)
+      },
+    }
+  )
 
   const handleChange = ({ target }) => {
     let { value } = target
@@ -32,9 +41,8 @@ const Form = () => {
     return <Loading />
   }
 
-  if (error) {
-    console.error(error)
-    return <Form/>
+  const closeModal = () =>{
+    setIsErrorVisible(false);
   }
 
   return (
@@ -50,7 +58,7 @@ const Form = () => {
         </label>
         <input
           type="text"
-          placeholder="Type to search one character..."
+          placeholder="Search a character..."
           className="form--input"
           id="search"
           name="search"
@@ -67,8 +75,11 @@ const Form = () => {
           Search
         </button>
       </form>
+
+      {isErrorVisible && <ModalError active={isErrorVisible} closeModal={closeModal} />}
     </section>
   )
 }
 
 export default Form
+
