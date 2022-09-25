@@ -1,0 +1,39 @@
+@import 'assets/styles/default.scss';
+
+.pagination {
+  margin: 0 auto 50px;
+  width: 200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__button {
+    @include convertToRem(width, 100);
+    @include convertToRem(height, 42);
+    background: $transparent;
+    border: $border solid $white;
+    box-sizing: border-box;
+    border-radius: $radius;
+    color: $white;
+    cursor: pointer;
+    font-family: $font;
+    @include convertToRem(font-size, 16);
+
+    &:focus,
+    &:hover {
+      outline: none;
+      border: $border solid $active;
+      color: $active;
+    }
+  }
+
+  &__text {
+    color: $white;
+    font-family: $font;
+    @include convertToRem(font-size, 16);
+    margin: 0 8px;
+    width: 100px;
+    text-align: center;
+  }
+}

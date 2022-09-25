@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import CHARACTER_SEARCH from 'query'
 
@@ -12,6 +12,8 @@ import './Home.scss'
 
 const Home = () => {
   const [isErrorVisible, setIsErrorVisible] = useState(false)
+  const [page, setPage] = useState(1)
+  const [character, setCharacter] = useState('')
 
   const [getCharacters, { loading, data }] = useLazyQuery(CHARACTER_SEARCH, {
     onError: (err) => {
@@ -20,8 +22,14 @@ const Home = () => {
     },
   })
 
+  useEffect(() => {
+    if (character !== '') {
+      getCharacters({ variables: { page, searchChar: character } })
+    }
+  }, [page, data, getCharacters, character])
+
   const handleSubmit = (formData) => {
-    getCharacters({ variables: { searchChar: formData } })
+    setCharacter(formData)
   }
 
   const closeModal = () => setIsErrorVisible(false)
@@ -32,7 +40,7 @@ const Home = () => {
       <main>
         <Form onSubmit={handleSubmit} />
         {loading && <Loading />}
-        <CharacterWrapper results={data} />
+        <CharacterWrapper results={data} handlePagination={setPage} />
         <ModalError active={isErrorVisible} closeModal={closeModal} />
       </main>
     </>
