@@ -1,20 +1,9 @@
-import { useState, useEffect } from 'react'
-import { useLazyQuery } from '@apollo/client'
-import CHARACTER_SEARCH from 'query'
-import Loading from 'components/Loading/Loading'
-import ModalError from 'components/ModalError/ModalError'
+import { useState } from 'react'
+
 import './Form.scss'
 
 const Form = ({ onSubmit }) => {
   const [searchChar, setSearchChar] = useState('')
-  const [isErrorVisible, setIsErrorVisible] = useState(false)
-
-  const [getCharacters, { loading, data }] = useLazyQuery(CHARACTER_SEARCH, {
-    onError: (err) => {
-      console.error(err)
-      setIsErrorVisible(true)
-    },
-  })
 
   const handleChange = ({ target }) => {
     let { value } = target
@@ -23,21 +12,7 @@ const Form = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    getCharacters({ variables: { searchChar } })
-  }
-
-  useEffect(() => {
-    if (data !== undefined) {
-      onSubmit(data)
-    }
-  }, [data, onSubmit])
-
-  if (loading) {
-    return <Loading />
-  }
-
-  const closeModal = () => {
-    setIsErrorVisible(false)
+    onSubmit(searchChar)
   }
 
   return (
@@ -54,7 +29,7 @@ const Form = ({ onSubmit }) => {
         <input
           type="text"
           placeholder="Search a character..."
-          className="form--input"
+          className="form__input"
           id="search"
           name="search"
           data-testid="search"
@@ -63,17 +38,13 @@ const Form = ({ onSubmit }) => {
         />
         <button
           type="submit"
-          className="form--submit"
+          className="form__submit"
           title="click to search a character"
           data-testid="submit"
         >
           Search
         </button>
       </form>
-
-      {isErrorVisible && (
-        <ModalError active={isErrorVisible} closeModal={closeModal} />
-      )}
     </section>
   )
 }
