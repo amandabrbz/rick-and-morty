@@ -1,25 +1,20 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import CHARACTER_SEARCH from 'query'
 import Loading from 'components/Loading/Loading'
 import ModalError from 'components/ModalError/ModalError'
-import { Context } from 'pages/Home/Home'
 import './Form.scss'
 
-const Form = () => {
-  const { setData } = useContext(Context)
+const Form = ({ onSubmit }) => {
   const [searchChar, setSearchChar] = useState('')
   const [isErrorVisible, setIsErrorVisible] = useState(false)
 
-  const [getCharacters, { loading, data }] = useLazyQuery(
-    CHARACTER_SEARCH,
-    {
-      onError: (err) => {
-        console.error(err)
-        setIsErrorVisible(true)
-      },
-    }
-  )
+  const [getCharacters, { loading, data }] = useLazyQuery(CHARACTER_SEARCH, {
+    onError: (err) => {
+      console.error(err)
+      setIsErrorVisible(true)
+    },
+  })
 
   const handleChange = ({ target }) => {
     let { value } = target
@@ -33,16 +28,16 @@ const Form = () => {
 
   useEffect(() => {
     if (data !== undefined) {
-      setData(data)
+      onSubmit(data)
     }
-  }, [data, setData])
+  }, [data, onSubmit])
 
   if (loading) {
     return <Loading />
   }
 
-  const closeModal = () =>{
-    setIsErrorVisible(false);
+  const closeModal = () => {
+    setIsErrorVisible(false)
   }
 
   return (
@@ -76,10 +71,11 @@ const Form = () => {
         </button>
       </form>
 
-      {isErrorVisible && <ModalError active={isErrorVisible} closeModal={closeModal} />}
+      {isErrorVisible && (
+        <ModalError active={isErrorVisible} closeModal={closeModal} />
+      )}
     </section>
   )
 }
 
 export default Form
-

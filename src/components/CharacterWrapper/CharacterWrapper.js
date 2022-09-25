@@ -1,18 +1,17 @@
-import { useContext } from 'react'
 import CharacterCard from 'components/CharacterCard/CharacterCard'
 import './CharacterWrapper.scss'
-import { Context } from 'pages/Home/Home'
 
-const CharacterWrapper = () => {
-  const { data } = useContext(Context)
-
+const CharacterWrapper = ({ results }) => {
   return (
-    <section className="character-wrapper">
-      {data &&
-        data.characters.results.map((char) => (
-          <CharacterCard data={char} size="avatar" key={char.id} />
-        ))}
-    </section>
+    <>
+      {results && (
+        <section className="character-wrapper">
+          {results?.characters.results.map((char) => (
+            <CharacterCard data={char} size="avatar" key={char.id} />
+          ))}
+        </section>
+      )}
+    </>
   )
 }
 
