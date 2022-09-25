@@ -12,7 +12,7 @@
     margin: 5em auto;
   }
 
-  &--input {
+  &__input {
     background: $transparent;
     width: 196px;
     height: 42px;
@@ -36,7 +36,7 @@
     }
   }
 
-  &--submit {
+  &__submit {
     @include convertToRem(width, 84);
     @include convertToRem(height, 42);
     background: $transparent;
