@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import Loading from 'components/Loading/Loading'
 
-describe('Loading testing', () => {
-  it('should appear a loading animation', () => {
+import { Loading } from 'components/Loading'
+
+describe('Loading', () => {
+  it('appears the loading', () => {
     render(<Loading />)
 
     const image = screen.getByTestId('loadingImg')

@@ -4,9 +4,7 @@ import { Modal } from 'components/Modal'
 
 import './CharacterCard.scss'
 
-export const CharacterCard = (props) => {
-  const { data, size } = props
-
+export const CharacterCard = ({ data, size }) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   useEffect(() => {

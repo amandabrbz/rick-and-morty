@@ -1,22 +1,17 @@
 import { render, screen } from '@testing-library/react'
-import Home from 'pages/Home/Home'
 
-describe('renders home page', () => {
-  it('should render the Rick and Mortys logo', () => {
+import { Home } from 'pages/Home'
+
+describe('Home', () => {
+  it('renders the home page', () => {
     render(<Home />)
 
     const logo = screen.getByRole('img', {
       name: /rick and morty's logo in blue and yellow/i,
     })
-
-    expect(logo).toBeInTheDocument()
-  })
-
-  it('should render form for search characters', () => {
-    render(<Home />)
-
     const form = screen.getByTestId('form-character')
 
+    expect(logo).toBeInTheDocument()
     expect(form).toBeInTheDocument()
   })
 })
