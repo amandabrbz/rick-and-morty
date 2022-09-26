@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import './Form.scss'
 
-const Form = ({ onSubmit }) => {
+export const Form = ({ onSubmit }) => {
   const [searchChar, setSearchChar] = useState('')
 
   const handleChange = ({ target }) => {
@@ -48,5 +48,3 @@ const Form = ({ onSubmit }) => {
     </section>
   )
 }
-
-export default Form

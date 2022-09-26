@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import Modal from 'components/Modal/Modal'
+import { useState, useEffect } from 'react'
+
+import { Modal } from 'components/Modal'
+
 import './CharacterCard.scss'
 
-const CharacterCard = (props) => {
+export const CharacterCard = (props) => {
   const { data, size } = props
 
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -31,7 +33,11 @@ const CharacterCard = (props) => {
         >
           <button onClick={handleClick} title="Click to see more information">
             <figure>
-              <img src={data.image} alt={`${data.name} avatar`} data-testid="cardImage" />
+              <img
+                src={data.image}
+                alt={`${data.name} avatar`}
+                data-testid="cardImage"
+              />
               <figcaption>
                 <h2 data-testid="cardName">{data.name}</h2>
                 <p data-testid="cardType">{data.species}</p>
@@ -52,5 +58,3 @@ const CharacterCard = (props) => {
     </>
   )
 }
-
-export default CharacterCard

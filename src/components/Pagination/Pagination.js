@@ -1,7 +1,15 @@
 import './Pagination.scss'
 
 export const Pagination = ({ pages, next, prev, handlePagination }) => {
-  const actualPage = next ? next - 1 : prev ? prev + 1 : 1
+  let actualPage
+
+  if (next) {
+    actualPage = next - 1
+  } else if (prev) {
+    actualPage = prev + 1
+  } else {
+    actualPage = 1
+  }
 
   return (
     <section className="pagination">

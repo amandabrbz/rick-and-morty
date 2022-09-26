@@ -1,8 +1,8 @@
 import Logo from 'assets/images/logo-rick-and-morty.png'
+
 import './Header.scss'
 
-
-const Header = () => {
+export const Header = () => {
   return (
     <header className="header">
       <img
@@ -13,5 +13,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

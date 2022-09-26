@@ -1,8 +1,8 @@
-import CharacterCard from 'components/CharacterCard/CharacterCard'
+import { CharacterCard } from 'components/CharacterCard'
 import { Pagination } from 'components/Pagination/Pagination'
 import './CharacterWrapper.scss'
 
-const CharacterWrapper = ({ results, handlePagination }) => {
+export const CharacterWrapper = ({ results, handlePagination }) => {
   return (
     <>
       {results && (
@@ -23,5 +23,3 @@ const CharacterWrapper = ({ results, handlePagination }) => {
     </>
   )
 }
-
-export default CharacterWrapper
