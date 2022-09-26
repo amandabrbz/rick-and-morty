@@ -13,15 +13,8 @@
   - [Forking and initializing](#Forking-and-initializing)
     - [Local](#Local)
   - [Tests](#Tests)
-- [Versioning](#Versioning)
-  - [Processo de Deploy](#Processo-de-deploy)
 - [Deploy](#Deploy)
-- [Conclusion](#Conclusion)
-  - [Learnings](#Learnings)
-  - [Difficulties](#Difficulties)
-  - [Points to get better](#Points-to-get-better)
 - [Contact](#Contact)
-- [References](#references)
 
 ## About the challenge
 
@@ -31,7 +24,6 @@ Develop an application to search characters from the Rick and Morty's Universe f
 
 - [x] It must be online
 - [x] It must be on Github
-- [x] It must follow the [design](https://www.figma.com/file/PTsl4gp2OOoEXuddyEx6GH/Frontend-Test---Rick-and-Morty) 
 - [x] It must fetch data from the [API](https://rickandmortyapi.com/graphql)
 
 ### Points to watch
@@ -44,13 +36,12 @@ Develop an application to search characters from the Rick and Morty's Universe f
 - [x] Keyboard navigation
 - [x] Accessibility
 - [x] Well structured readme explaining the project at a high level, how to execute,
-compile and test
+      compile and test
 
 ### Optional
 
 - [x] Unit test and integration test
 - [ ] End to End tests
-- [ ] CI/CD
 
 ## Getting Started
 
@@ -95,7 +86,7 @@ http://localhost:3000
 
 :no_entry_sign: Caso a porta já esteja sendo utilizada, a própria aplicação avisa e tenta outra porta.
 
-:no_entry_sign:  In case of the port it's been used, the application will notify and it'll try another port, pay attention to your bash in this step.
+:no_entry_sign: In case of the port it's been used, the application will notify and it'll try another port, pay attention to your bash in this step.
 
 ### Tests
 
@@ -104,16 +95,6 @@ For this application I made a few smoke and unit tests using `react-testing-libr
 ```sh
 npm test
 ```
-
-## Versioning
-
-I developed every major of the project over branches, because I didn't see necessary working with pull request knowing that it wasn't anybody to correct me and it would be one more step to do, but I know the importance of the PR method between groups.
-
-In case of needing to come back in a finished branch, I synchronized my branch with the command `git pull origin main` with the main branch.
-
-To organize my development I used some features from Github, such as issues to see the problems that I raised to solved. 
-
-The pattern to commit that I choose, in your majority, it followed a verb and a brief explanation about what I was developing. An example: `add loading component`
 
 ### Deploy
 
@@ -126,22 +107,7 @@ npm run build
 netlify deploy --prod
 ```
 
-Obs: To see the the result in production, come back to the section [Deploy](#Deploy)
-
-## Conclusion
-
-### Learnings
-
-I'm still learning React and its universe. This is my first ime with graphql and I had a little difficulty to prepare the request and pass some query dynamic. I guess I didn't make the best use of it, but I could solve the problem with it. I learned how to make a modal accessible with pure javascript and it was nice. 
-
-### Difficulties
-
-I had difficulties to understand how graphql queries and how it worked dynamic, I've tried Apollo and SWR to fetch data more easier and I found myself better with Apollo but I couldn't figure how to do the pagination yet, I saw an example with SWR and I'll try to adapt to Apollo version.
-
-### Points to get better
-
-- [ ] Tests
-- [ ] GraphQL
+Ps: To see the the result in production, come back to the section [Deploy](#Deploy)
 
 ## Deploy
 
@@ -155,7 +121,3 @@ I had difficulties to understand how graphql queries and how it worked dynamic, 
 ## Contact
 
 Amanda Barboza @ [LinkedIn](https://linkedin/in/amandabrbz)
-
-## References
-
-[Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | [Context API](https://medium.com/reactbrasil/entendendo-a-context-api-do-react-criando-um-componente-de-loading-a84f84007dc7) | [Tests](https://medium.com/tableless/você-é-irresponsável-por-não-escrever-testes-de-front-end-70c2858b62df)
