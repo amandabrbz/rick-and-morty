@@ -12,17 +12,18 @@ export const Pagination = ({ pages, next, prev, handlePagination }) => {
   }
 
   return (
-    <section className="pagination">
+    <section className="pagination" data-testid="pagination">
       {prev && (
         <button
           className="pagination__button"
           onClick={() => handlePagination((prev) => (prev -= 1))}
+          title="previous"
         >
           previous
         </button>
       )}
 
-      <p className="pagination__text">
+      <p className="pagination__text" data-testid="page-text">
         {actualPage} of {pages}
       </p>
 
@@ -30,6 +31,7 @@ export const Pagination = ({ pages, next, prev, handlePagination }) => {
         <button
           className="pagination__button"
           onClick={() => handlePagination((prev) => (prev += 1))}
+          title="next"
         >
           next
         </button>

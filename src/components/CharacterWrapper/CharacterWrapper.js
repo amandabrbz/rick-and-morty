@@ -7,7 +7,7 @@ export const CharacterWrapper = ({ results, handlePagination }) => {
     <>
       {results && (
         <>
-          <section className="character-wrapper">
+          <section className="character-wrapper" data-testid="character-wrapper">
             {results?.characters.results.map((char) => (
               <CharacterCard data={char} size="avatar" key={char.id} />
             ))}

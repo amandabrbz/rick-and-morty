@@ -4,7 +4,7 @@ import './Header.scss'
 
 export const Header = () => {
   return (
-    <header className="header">
+    <header className="header" data-testid="header">
       <img
         src={Logo}
         alt="Rick and Morty's logo in blue and yellow"
